@@ -1,8 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import AuthModal from "./auth/AuthModal";
+import UserMenu from "./auth/UserMenu";
 
 const Header = () => {
+  const { user } = useAuth();
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
+
+  const handleAuthClick = (mode: 'signin' | 'signup') => {
+    setAuthMode(mode);
+    setIsAuthModalOpen(true);
+  };
+
   return (
     <header className="bg-primary text-primary-foreground sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -28,15 +41,42 @@ const Header = () => {
             <Search className="w-4 h-4 mr-1" />
             সার্চ করুন
           </Button>
-          <Button variant="hero" size="sm">
-            <User className="w-4 h-4 mr-1" />
-            লগইন
-          </Button>
+          
+          {user ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                onClick={() => handleAuthClick('signup')}
+                className="hidden md:flex"
+              >
+                <User className="w-4 h-4 mr-1" />
+                নিবন্ধন
+              </Button>
+              <Button 
+                variant="hero" 
+                size="sm"
+                onClick={() => handleAuthClick('signin')}
+              >
+                <User className="w-4 h-4 mr-1" />
+                লগইন
+              </Button>
+            </>
+          )}
+          
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="w-5 h-5" />
           </Button>
         </div>
       </div>
+      
+      <AuthModal 
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        defaultMode={authMode}
+      />
     </header>
   );
 };
