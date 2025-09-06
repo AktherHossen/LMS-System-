@@ -24,7 +24,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
               <span className="font-bold text-secondary-foreground">E</span>
             </div>
-            <span className="text-xl font-bold">EduBangla</span>
+            <span className="text-xl font-bold">GoLearning</span>
           </div>
         </div>
 
