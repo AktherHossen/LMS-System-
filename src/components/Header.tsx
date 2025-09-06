@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,12 +16,11 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#" className="hover:text-secondary transition-colors">হোম</a>
-          <a href="#" className="hover:text-secondary transition-colors">কোর্স</a>
-          <a href="#" className="hover:text-secondary transition-colors">HSC</a>
-          <a href="#" className="hover:text-secondary transition-colors">SSC</a>
-          <a href="#" className="hover:text-secondary transition-colors">ভর্তি প্রস্তুতি</a>
-          <a href="#" className="hover:text-secondary transition-colors">যোগাযোগ</a>
+          <Link to="/" className="hover:text-secondary transition-colors">হোম</Link>
+          <Link to="/courses" className="hover:text-secondary transition-colors">কোর্স</Link>
+          <Link to="/teachers" className="hover:text-secondary transition-colors">শিক্ষকমন্ডলী</Link>
+          <Link to="/about" className="hover:text-secondary transition-colors">সম্পর্কে</Link>
+          <Link to="/contact" className="hover:text-secondary transition-colors">যোগাযোগ</Link>
         </nav>
 
         <div className="flex items-center space-x-3">

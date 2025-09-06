@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Youtube, Instagram, Twitter, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -39,11 +40,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">কুইক লিংক</h3>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-secondary transition-colors">হোম</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">সব কোর্স</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">শিক্ষকমন্ডলী</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">সম্পর্কে</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">যোগাযোগ</a></li>
+              <li><Link to="/" className="hover:text-secondary transition-colors">হোম</Link></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">সব কোর্স</Link></li>
+              <li><Link to="/teachers" className="hover:text-secondary transition-colors">শিক্ষকমন্ডলী</Link></li>
+              <li><Link to="/about" className="hover:text-secondary transition-colors">সম্পর্কে</Link></li>
+              <li><Link to="/contact" className="hover:text-secondary transition-colors">যোগাযোগ</Link></li>
             </ul>
           </div>
 
@@ -51,11 +52,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">কোর্স</h3>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-secondary transition-colors">HSC কোর্স</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">SSC কোর্স</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">ভর্তি প্রস্তুতি</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">চাকরি প্রস্তুতি</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">স্কিল ডেভেলপমেন্ট</a></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">HSC কোর্স</Link></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">SSC কোর্স</Link></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">ভর্তি প্রস্তুতি</Link></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">চাকরি প্রস্তুতি</Link></li>
+              <li><Link to="/courses" className="hover:text-secondary transition-colors">স্কিল ডেভেলপমেন্ট</Link></li>
             </ul>
           </div>
 
